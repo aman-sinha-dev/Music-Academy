@@ -84,7 +84,7 @@ const Footer = () => {
           <p>Phone: (123) 456-7890</p>
         </div>
       </div>
-      <p className="text-center text-xs pt-8">© 2024 Music Academy. All rights reserved.</p>
+      <p className="text-center text-xs pt-8">© 2026 Music Academy. All rights reserved.</p>
     </footer>
   )
 

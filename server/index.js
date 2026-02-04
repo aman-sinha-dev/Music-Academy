@@ -8,6 +8,7 @@ import { PORT, CORS_ORIGIN } from "./config/env.js";
 
 import adminRoutes from "./app/admin/route.js";
 import contactRoutes from "./app/contact/route.js"
+import purchaseRoutes from "./app/purchase/route.js"
 
 
 import { globalRateLimiter } from "./middlewares/rateLimiter.js";
@@ -60,6 +61,7 @@ app.get("/", (req, res) => {
 
 app.use("/admin", adminRoutes);
 app.use("/contact", contactRoutes);
+app.use("/purchase", purchaseRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
