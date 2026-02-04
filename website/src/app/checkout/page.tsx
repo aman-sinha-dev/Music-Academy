@@ -31,6 +31,18 @@ interface Course {
 }
 
 export default function CheckoutPage() {
+    return (
+        <React.Suspense fallback={
+            <div className="min-h-screen bg-black flex items-center justify-center">
+                <div className="text-white text-xl font-bold">Loading...</div>
+            </div>
+        }>
+            <CheckoutContent />
+        </React.Suspense>
+    )
+}
+
+function CheckoutContent() {
     const searchParams = useSearchParams()
     const courseSlug = searchParams.get('course')
     
