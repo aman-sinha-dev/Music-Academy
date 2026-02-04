@@ -15,7 +15,7 @@ export const globalRateLimiter = rateLimit({
 // Strict limiter for sensitive routes (login, register)
 export const authLimiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 minutes
-  max: 5, // allow only 5 requests per window
+  max: 15, // allow only 15 requests per window
   message: {
     success: false,
     message: "Too many requests, please try again after sometime.",
