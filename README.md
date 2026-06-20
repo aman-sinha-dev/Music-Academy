@@ -24,7 +24,7 @@ A full-stack music academy web application where users can explore, browse, and 
 - 📱 Mobile-friendly design
 - ✨ Aceternity UI components with animations
 - 📧 Contact form submission
-- 🔐 Admin authentication for managing data
+- 🔐 Admin panel with login & dashboard to manage contacts and purchases
 - 🛡️ Rate limiting and security features
 
 ## Technologies Used
@@ -49,26 +49,38 @@ A full-stack music academy web application where users can explore, browse, and 
 
 ```
 Music-Academy/
-├── website/                 # Frontend (Next.js)
+├── website/                    # Frontend (Next.js)
 │   ├── src/
-│   │   ├── app/            # App router pages
-│   │   │   ├── courses/    # Course pages
-│   │   │   │   └── [slug]/ # Dynamic course detail page
-│   │   │   ├── checkout/   # Checkout/enrollment page
-│   │   │   └── contact/    # Contact page
-│   │   ├── components/     # React components
-│   │   │   └── ui/         # Aceternity UI components
-│   │   └── data/           # JSON data files
-│   └── public/             # Static assets
+│   │   ├── app/               # App router pages
+│   │   │   ├── (admin)/       # Admin route group
+│   │   │   │   └── admin/
+│   │   │   │       ├── login/          # Admin login page
+│   │   │   │       └── dashboard/      # Admin dashboard page
+│   │   │   ├── api/           # Next.js API proxy routes
+│   │   │   │   ├── admin/
+│   │   │   │   │   ├── login/          # Admin login API proxy
+│   │   │   │   │   ├── contacts/       # Contacts API proxy (admin)
+│   │   │   │   │   └── purchases/      # Purchases API proxy (admin)
+│   │   │   │   ├── contact/            # Contact form API proxy
+│   │   │   │   └── purchase/           # Purchase API proxy
+│   │   │   ├── courses/       # Course pages
+│   │   │   │   └── [slug]/    # Dynamic course detail page
+│   │   │   ├── checkout/      # Checkout/enrollment page
+│   │   │   └── contact/       # Contact page
+│   │   ├── components/        # React components
+│   │   │   └── ui/            # Aceternity UI components
+│   │   └── data/              # JSON data files
+│   └── public/                # Static assets
 │
-└── server/                  # Backend (Express.js)
+└── server/                    # Backend (Express.js)
     ├── app/
-    │   ├── admin/          # Admin authentication
-    │   ├── contact/        # Contact form API
-    │   └── purchase/       # Course purchase API
-    ├── config/             # Database & environment config
-    ├── middlewares/        # Auth & rate limiting
-    └── index.js            # Server entry point
+    │   ├── admin/             # Admin auth (controller, model, route, validator)
+    │   ├── contact/           # Contact form API
+    │   └── purchase/          # Course purchase API
+    ├── config/                # Database & environment config
+    ├── middlewares/           # Auth & rate limiting
+    ├── seed.js                # Admin seed script
+    └── index.js               # Server entry point
 ```
 
 ## Installation
@@ -130,7 +142,7 @@ This will create a default admin with:
 - **Email:** `admin@gmail.com`
 - **Password:** `123456`
 
-You can now log in at `http://localhost:3000/admin/login`.
+You can now log in at [http://localhost:3000/admin/login](http://localhost:3000/admin/login).
 
 ## API Endpoints
 
@@ -207,6 +219,8 @@ You can now log in at `http://localhost:3000/admin/login`.
 - **Course Details** - `/courses/[slug]` - Individual course page
 - **Checkout** - `/checkout?course=[slug]` - Enroll in a course
 - **Contact** - `/contact` - Contact form
+- **Admin Login** - `/admin/login` - Admin authentication page
+- **Admin Dashboard** - `/admin/dashboard` - Manage contacts & purchases (requires login)
 
 ## Contributing
 Contributions are welcome! Please fork this repository and submit a pull request with your improvements.
@@ -223,4 +237,3 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 Made with ❤️ by [Aman Kumar Sinha](https://github.com/aman-sinha-dev)
- 
